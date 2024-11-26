@@ -1,0 +1,44 @@
+﻿@model IEnumerable<library_management_system_new.Models.tblBook>
+
+@{
+    ViewBag.Title = "Books List";
+}
+
+<h2>Books List</h2>
+
+<p>
+    @Html.ActionLink("Create New Book", "Create")
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Category</th>
+            <th>Author</th>
+            <th>Publication</th>
+            <th>ISBN</th>
+            <th>Created By</th>
+            <th>Created Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Title</td>
+                <td>@item.CategoryType</td>
+                <td>@item.AuthorName</td>
+                <td>@item.PublicationName</td>
+                <td>@item.ISBN</td>
+                <td>@item.CreatedBy</td>
+                <td>@item.CreatedDate</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
